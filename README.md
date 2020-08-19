@@ -55,7 +55,7 @@ const booksSlice = createSlice({
 
     // use the handler as part of a reducer
     [fetchBooks.fulfilled.type]: (state, action) => {
-      asyncAdapter.handleFulfilled(fetchBooks)
+      asyncAdapter.handleFulfilled(fetchBooks)(state)
       state = action.payload
     },
 
