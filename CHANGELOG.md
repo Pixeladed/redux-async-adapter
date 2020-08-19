@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.0.0...v1.1.0) (2020-08-19)
+
+
+### Features
+
+* **README:** add documentation on how to use the library ([ad44313](https://github.com/Pixeladed/redux-async-adapter/commit/ad44313d9670a4a81c613ebaa66dfe6d67bab573))
+
 # 1.0.0 (2020-08-19)
 
 
