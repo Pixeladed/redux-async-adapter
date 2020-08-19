@@ -10,5 +10,5 @@ export interface AsyncStatus {
   loading: boolean;
   loaded: boolean;
   error: SerializedError | undefined;
-  lastLoaded: Date | undefined;
+  lastLoaded: string | undefined;
 }

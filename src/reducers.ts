@@ -1,6 +1,6 @@
 import { AsyncThunk } from '@reduxjs/toolkit';
 import { AsyncState, AsyncStatus } from 'types';
-import { getDefaultStatus } from 'helpers';
+import { getDefaultStatus } from 'utils';
 
 /**
  * Handle async status updates for an async thunk pending action
@@ -45,7 +45,7 @@ export const handleFulfilled = <
     error: undefined,
     loaded: true,
     loading: false,
-    lastLoaded: new Date(),
+    lastLoaded: new Date().toISOString(),
   };
 
   state.status[typePrefix] = newStatus;

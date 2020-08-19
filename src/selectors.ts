@@ -1,6 +1,7 @@
 import { AsyncThunk, SerializedError } from '@reduxjs/toolkit';
 import { AsyncState, AsyncStatus } from 'types';
 import { createSelector } from 'reselect';
+import { getDefaultStatus } from 'utils';
 
 /**
  * Select the async status for a particular async thunk
@@ -16,7 +17,9 @@ export const selectStatus = <
   state: AsyncState<Data>,
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => {
-  const status = state.status[asyncThunk.typePrefix] || defaultStatus;
+  const status =
+    state.status[asyncThunk.typePrefix] ||
+    getDefaultStatus(asyncThunk.typePrefix);
   return status;
 };
 

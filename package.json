@@ -17,9 +17,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {
-    "@reduxjs/toolkit": "^1.4.0"
-  },
+  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -35,12 +33,20 @@
   "author": "Pixeladed",
   "module": "dist/redux-async-adapter.esm.js",
   "devDependencies": {
+    "flush-promises": "^1.0.2",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.1",
     "typescript": "^3.9.7"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
     "reselect": "^4.0.0"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }
