@@ -4,17 +4,15 @@ on: [push]
 
 jobs:
   unit-tests:
+    name: Unit tests
     runs-on: ubuntu-latest
-
     steps:
-      - name: Begin CI...
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Use Node 12
+      - name: Set up NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-
+          node-version: 14.x
       - name: Use cached node_modules
         uses: actions/cache@v1
         with:
@@ -22,18 +20,7 @@ jobs:
           key: nodeModules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             nodeModules-
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        env:
-          CI: true
-
-      - name: Lint
-        run: yarn lint
-        env:
-          CI: true
-
-      - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
         env:
           CI: true
