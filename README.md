@@ -70,8 +70,7 @@ const store = configureStore({
 })
 
 // use the selectors to get the thunk's status
-const fetchBooksSelector = asyncAdapter.getSelectors().selectAsyncStatus(fetchBooks)
-const fetchBooksStatus = fetchBooksSelector(store.getState())
+const fetchBooksStatus = asyncAdapter.getSelectors().selectAsyncStatus(store.getState(), fetchBooks)
 
 // access the various statuses`
 const {loading, error, loaded, lastLoaded} = fetchBooksStatus
