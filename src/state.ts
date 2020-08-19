@@ -1,6 +1,6 @@
 import { AsyncState } from 'types';
 
-export const getInitialState = <T>(initialData: T):AsyncState<T> => ({
+export const getInitialState = <T>(initialData: T): AsyncState<T> => ({
   status: {},
-  data: initialData
-})
+  data: initialData,
+});

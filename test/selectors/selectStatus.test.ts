@@ -1,38 +1,40 @@
-import * as selectors from 'selectors';
 import {
   createAsyncThunk,
   createReducer,
   configureStore,
 } from '@reduxjs/toolkit';
-import { getInitialState } from 'state';
 import { getDefaultStatus } from 'utils';
-import { handlePending, handleFulfilled, handleRejected } from 'reducers';
 import { AsyncStatus } from 'types';
 import flushPromises from 'flush-promises';
+import createAsyncAdapter from 'index';
 
 describe('selectStatus', () => {
   it('select the default status if there is no previous requests', () => {
+    const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('example thunk', async () => {});
-    const store = configureStore({ reducer: () => getInitialState({}) });
+    const store = configureStore({
+      reducer: () => adapter.getInitialState({}),
+    });
 
-    const status = selectors.selectStatus(store.getState(), thunk);
+    const status = adapter.getSelectors().selectStatus(store.getState(), thunk);
     expect(status).toEqual(getDefaultStatus(thunk.typePrefix));
   });
 
   it('select the current status if a thunk has been dispatched', async () => {
+    const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('example thunk', async () => {});
     const store = configureStore({
-      reducer: createReducer(getInitialState({}), {
-        [thunk.pending.type]: handlePending(thunk),
-        [thunk.fulfilled.type]: handleFulfilled(thunk),
-        [thunk.rejected.type]: handleRejected(thunk),
+      reducer: createReducer(adapter.getInitialState({}), {
+        [thunk.pending.type]: adapter.handlePending(thunk),
+        [thunk.fulfilled.type]: adapter.handleFulfilled(thunk),
+        [thunk.rejected.type]: adapter.handleRejected(thunk),
       }),
     });
 
     store.dispatch(thunk());
     await flushPromises();
 
-    const status = selectors.selectStatus(store.getState(), thunk);
+    const status = adapter.getSelectors().selectStatus(store.getState(), thunk);
     const result: Partial<AsyncStatus> = {
       name: thunk.typePrefix,
       error: undefined,
