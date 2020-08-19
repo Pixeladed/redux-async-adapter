@@ -3,8 +3,8 @@ import {
   createReducer,
   configureStore,
 } from '@reduxjs/toolkit';
-import createAsyncAdapter from 'index';
-import { getMatchingSerializedError } from 'utils';
+import createAsyncAdapter from '../../src/index';
+import { getMatchingSerializedError } from '../../src/utils';
 
 describe('selectAllErrors', () => {
   it('should return an empty array if no thunks have been dispatched', () => {

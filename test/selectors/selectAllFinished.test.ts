@@ -1,4 +1,4 @@
-import createAsyncAdapter from 'index';
+import createAsyncAdapter from '../../src/index';
 import {
   configureStore,
   createAsyncThunk,

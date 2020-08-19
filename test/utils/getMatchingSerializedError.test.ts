@@ -1,4 +1,4 @@
-import { getMatchingSerializedError } from 'utils';
+import { getMatchingSerializedError } from '../../src/utils';
 import { SerializedError } from '@reduxjs/toolkit';
 
 describe('getMatchingSerializedError', () => {

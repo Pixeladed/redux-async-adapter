@@ -3,10 +3,10 @@ import {
   createReducer,
   configureStore,
 } from '@reduxjs/toolkit';
-import { getDefaultStatus } from 'utils';
-import { AsyncStatus } from 'types';
+import { getDefaultStatus } from '../../src/utils';
+import { AsyncStatus } from '../../src/types';
 import flushPromises from 'flush-promises';
-import createAsyncAdapter from 'index';
+import createAsyncAdapter from '../../src/index';
 
 describe('selectStatus', () => {
   it('select the default status if there is no previous requests', () => {

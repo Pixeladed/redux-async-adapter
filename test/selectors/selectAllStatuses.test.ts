@@ -3,9 +3,9 @@ import {
   createReducer,
   configureStore,
 } from '@reduxjs/toolkit';
-import { AsyncStatus } from 'types';
+import { AsyncStatus } from '../../src/types';
 import flushPromises from 'flush-promises';
-import createAsyncAdapter from 'index';
+import createAsyncAdapter from '../../src/index';
 
 describe('selectAllStatuses', () => {
   it('should return empty array if no thunks have been dispatched', () => {

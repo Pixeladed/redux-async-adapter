@@ -1,5 +1,5 @@
-import createAsyncAdapter from 'index';
-import { AsyncState } from 'types';
+import createAsyncAdapter from '../../src/index';
+import { AsyncState } from '../../src/types';
 
 describe('getInitialState', () => {
   it('should return the expected state shape', () => {

@@ -1,5 +1,5 @@
-import { AsyncStatus } from 'types';
-import { getDefaultStatus } from 'utils';
+import { AsyncStatus } from '../../src/types';
+import { getDefaultStatus } from '../../src/utils';
 
 describe('getDefaultStatus', () => {
   it('should return the correct status shape', () => {

@@ -1,7 +1,7 @@
-import createAsyncAdapter from 'index';
-import { AsyncState } from 'types';
+import createAsyncAdapter from '../../src/index';
+import { AsyncState } from '../../src/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getMatchingSerializedError } from 'utils';
+import { getMatchingSerializedError } from '../../src/utils';
 
 describe('handleRejected', () => {
   it('adds a new status if none exists', () => {

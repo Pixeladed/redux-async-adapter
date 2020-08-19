@@ -4,7 +4,7 @@ import {
   configureStore,
 } from '@reduxjs/toolkit';
 import flushPromises from 'flush-promises';
-import createAsyncAdapter from 'index';
+import createAsyncAdapter from '../../src/index';
 
 describe('selectAnyLoading', () => {
   it('should return false if no thunks have been dispatched', () => {
