@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Pixeladed/redux-async-adapter/compare/v1.1.0...v1.1.1) (2020-08-19)
+
+
+### Bug Fixes
+
+* **README:** update selectStatus usage ([a300bde](https://github.com/Pixeladed/redux-async-adapter/commit/a300bdeb7940a2dd0e85e10011f6825bbc977b88))
+
 # [1.1.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.0.0...v1.1.0) (2020-08-19)
 
 
