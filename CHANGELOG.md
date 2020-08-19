@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.1.1...v1.2.0) (2020-08-19)
+
+
+### Features
+
+* **README:** update usage of handleFulfilled ([3825fd3](https://github.com/Pixeladed/redux-async-adapter/commit/3825fd30909f7af4fda10f16e10c47fe4818532b))
+
 ## [1.1.1](https://github.com/Pixeladed/redux-async-adapter/compare/v1.1.0...v1.1.1) (2020-08-19)
 
 
