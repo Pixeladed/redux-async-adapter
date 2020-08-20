@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Pixeladed/redux-async-adapter/compare/v1.3.0...v1.3.1) (2020-08-20)
+
+
+### Bug Fixes
+
+* **typescript:** fix declaration file not including all types ([345de7d](https://github.com/Pixeladed/redux-async-adapter/commit/345de7d799a7df61ed99ce3e75b42933c0eb8c2b))
+
 # [1.3.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.2.0...v1.3.0) (2020-08-20)
 
 
