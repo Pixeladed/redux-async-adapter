@@ -4,6 +4,14 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "homepage": "https://github.com/Pixeladed/redux-async-adapter",
+  "keywords": [
+    "redux",
+    "adapter",
+    "thunk",
+    "async",
+    "promise",
+    "utility"
+  ],
   "files": [
     "dist",
     "src"
