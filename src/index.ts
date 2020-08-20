@@ -1,6 +1,6 @@
-import * as selectors from 'selectors';
-import * as reducers from 'reducers';
-import { getInitialState } from 'state';
+import * as selectors from './selectors';
+import * as reducers from './reducers';
+import { getInitialState } from './state';
 
 const createAsyncAdapter = () => ({
   getInitialState,
@@ -8,5 +8,5 @@ const createAsyncAdapter = () => ({
   getSelectors: () => selectors,
 });
 
-export * from 'types';
+export * from './types';
 export default createAsyncAdapter;

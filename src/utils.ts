@@ -1,4 +1,4 @@
-import { AsyncStatus } from 'types';
+import { AsyncStatus } from './types';
 import { SerializedError } from '@reduxjs/toolkit';
 
 export const getDefaultStatus = (typePrefix: string): AsyncStatus => ({

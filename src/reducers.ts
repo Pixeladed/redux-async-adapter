@@ -1,6 +1,6 @@
 import { AsyncThunk } from '@reduxjs/toolkit';
-import { AsyncState, AsyncStatus } from 'types';
-import { getDefaultStatus } from 'utils';
+import { AsyncState, AsyncStatus } from './types';
+import { getDefaultStatus } from './utils';
 
 /**
  * Handle async status updates for an async thunk pending action

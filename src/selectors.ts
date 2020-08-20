@@ -1,7 +1,7 @@
 import { AsyncThunk, SerializedError } from '@reduxjs/toolkit';
-import { AsyncState, AsyncStatus } from 'types';
+import { AsyncState, AsyncStatus } from './types';
 import { createSelector } from 'reselect';
-import { getDefaultStatus } from 'utils';
+import { getDefaultStatus } from './utils';
 
 /**
  * Select the async status for a particular async thunk
