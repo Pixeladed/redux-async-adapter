@@ -10,7 +10,8 @@
     "thunk",
     "async",
     "promise",
-    "utility"
+    "utility",
+    "redux-toolkit"
   ],
   "files": [
     "dist",
