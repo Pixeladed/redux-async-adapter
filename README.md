@@ -70,9 +70,12 @@ const store = configureStore({
 })
 
 // use the selectors to get the thunk's status
-const fetchBooksStatus = asyncAdapter.getSelectors().selectAsyncStatus(store.getState(), fetchBooks)
+const fetchBooksStatus =
+  asyncAdapter
+    .getSelectors()
+    .selectAsyncStatus(store.getState(), fetchBooks)
 
-// access the various statuses`
+// access the various statuses
 const {loading, error, loaded, lastLoaded} = fetchBooksStatus
 ```
 
@@ -159,6 +162,6 @@ adapter.getSelectors().selectAllErrors(state);
 
 - `selectAllFinished`: returns whether or not all thunk in the state has finished (loaded)
 
-```
-adapter.getSelectors().selectAllFinished(state)
+```typescript
+adapter.getSelectors().selectAllFinished(state);
 ```
