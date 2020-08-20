@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.2.0...v1.3.0) (2020-08-20)
+
+
+### Features
+
+* **package.json:** add keywords ([4e34118](https://github.com/Pixeladed/redux-async-adapter/commit/4e341185915168fae61268d7732e32c86a71295f))
+
 # [1.2.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.1.1...v1.2.0) (2020-08-19)
 
 
