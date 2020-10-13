@@ -1,3 +1,14 @@
+# [1.4.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.3.1...v1.4.0) (2020-10-13)
+
+
+### Features
+
+* **dependencies:** add @reduxjs/toolkit to devDependencies ([730a4e1](https://github.com/Pixeladed/redux-async-adapter/commit/730a4e180215073752ba82be61db18a48b764bc8))
+* **dependencies:** add redux toolkit to peerDependencies ([3d3df9b](https://github.com/Pixeladed/redux-async-adapter/commit/3d3df9bd23a66295302744c48f1f40863ccca181))
+* **dependencies:** update yarn.lock ([84899c9](https://github.com/Pixeladed/redux-async-adapter/commit/84899c9cd98899cce975776d63793dc59d0b2358))
+* **selectors:** add selectData selector ([4a88869](https://github.com/Pixeladed/redux-async-adapter/commit/4a88869a0dfe273539499e80910ab6714c971025))
+* **typescript:** remove default typing for reducers and selectors ([da1f098](https://github.com/Pixeladed/redux-async-adapter/commit/da1f09883a9499f9496d5d5aa52ea67a14a78963))
+
 ## [1.3.1](https://github.com/Pixeladed/redux-async-adapter/compare/v1.3.0...v1.3.1) (2020-08-20)
 
 
