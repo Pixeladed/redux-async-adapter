@@ -13,11 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.1
         with:
           node-version: 14.x
       - name: Use cached node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.1
         with:
           path: node_modules
           key: nodeModules-${{ hashFiles('**/yarn.lock') }}
@@ -43,11 +43,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.1
         with:
           node-version: 14.x
       - name: Use cached node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.1
         with:
           path: node_modules
           key: nodeModules-${{ hashFiles('**/yarn.lock') }}
