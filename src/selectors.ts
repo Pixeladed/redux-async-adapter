@@ -4,6 +4,14 @@ import { createSelector } from 'reselect';
 import { getDefaultStatus } from './utils';
 
 /**
+ * Select the data from an async state
+ * @param state the async state to select the data from
+ */
+export const selectData = <Data>(state: AsyncState<Data>) => {
+  return state.data;
+};
+
+/**
  * Select the async status for a particular async thunk
  * @param state the async state to select the status from
  * @param asyncThunk the async thunk created by createAsyncThunk
