@@ -5,12 +5,7 @@ import { getDefaultStatus } from './utils';
 /**
  * Handle async status updates for an async thunk pending action
  */
-export const handlePending = <
-  Data,
-  Returned = unknown,
-  ThunkArg = unknown,
-  ThunkApiConfig extends {} = {}
->(
+export const handlePending = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (state: AsyncState<Data>) => {
   const { typePrefix } = asyncThunk;
@@ -29,12 +24,7 @@ export const handlePending = <
 /**
  * Handle async status updates for an async thunk fulfilled action
  */
-export const handleFulfilled = <
-  Data,
-  Returned = unknown,
-  ThunkArg = unknown,
-  ThunkApiConfig extends {} = {}
->(
+export const handleFulfilled = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (state: AsyncState<Data>) => {
   const { typePrefix } = asyncThunk;
@@ -54,12 +44,7 @@ export const handleFulfilled = <
 /**
  * Handle async status updates for an async thunk rejected action
  */
-export const handleRejected = <
-  Data,
-  Returned = unknown,
-  ThunkArg = unknown,
-  ThunkApiConfig extends {} = {}
->(
+export const handleRejected = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (
   state: AsyncState<Data>,

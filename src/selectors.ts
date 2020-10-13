@@ -16,12 +16,7 @@ export const selectData = <Data>(state: AsyncState<Data>) => {
  * @param state the async state to select the status from
  * @param asyncThunk the async thunk created by createAsyncThunk
  */
-export const selectStatus = <
-  Data,
-  Returned = unknown,
-  ThunkArg = unknown,
-  ThunkApiConfig extends {} = {}
->(
+export const selectStatus = <Data, Returned, ThunkArg, ThunkApiConfig>(
   state: AsyncState<Data>,
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => {
