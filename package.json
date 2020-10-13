@@ -51,7 +51,7 @@
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "flush-promises": "^1.0.2",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "semantic-release": "^17.1.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.1",
