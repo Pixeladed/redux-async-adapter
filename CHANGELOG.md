@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.6.0...v1.7.0) (2020-10-20)
+
+
+### Features
+
+* **settings:** add settings to use payload as error instead ([2dbb3e2](https://github.com/Pixeladed/redux-async-adapter/commit/2dbb3e275a32e777452587db34711a30b9aef5d2))
+
 # [1.6.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.5.0...v1.6.0) (2020-10-20)
 
 
