@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.5.0...v1.6.0) (2020-10-20)
+
+
+### Features
+
+* shuffle createAsyncAdapter definition ([fad78ff](https://github.com/Pixeladed/redux-async-adapter/commit/fad78ff473366255498deb9b116efc9f909e0097))
+
 # [1.5.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.4.0...v1.5.0) (2020-10-20)
 
 
