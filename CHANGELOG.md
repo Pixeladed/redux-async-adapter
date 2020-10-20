@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.7.0...v1.8.0) (2020-10-20)
+
+
+### Features
+
+* **selectors:** curry selectStatus ([3f59dc6](https://github.com/Pixeladed/redux-async-adapter/commit/3f59dc634dbfe15931d5134420c43c0bd2a196d5))
+
 # [1.7.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.6.0...v1.7.0) (2020-10-20)
 
 
