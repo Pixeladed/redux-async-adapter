@@ -137,10 +137,22 @@ adapter.handleRejected(thunk)(state, action);
 - `handleReset`: accepts an `asyncThunk` and return a reducer that reset the loading and loaded state to false and reset the error and last loaded fields
 
 ```typescript
-adapter.handleReset(thunk)(action);
+adapter.handleReset(thunk)(state);
+```
+
+- `resetAllStatuses`: a reducer that reset all of the loading statuses previously stored
+
+```typescript
+adapter.resetAllStatuses(state);
 ```
 
 ### Selectors
+
+- `selectData`: select the data in the state (e.g. the data that you passed when using `getInitialState`)
+
+```typescript
+adapter.getSelectors().selectData(state);
+```
 
 - `selectStatus`: accepts an `asyncThunk` (created by redux toolkit's `createAsyncThunk`) and the state and returns the status object of that particular thunk
 
