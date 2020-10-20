@@ -4,8 +4,8 @@ import { getInitialState } from './state';
 import { AsyncAdapterOptions } from './types';
 import { setSettings } from './settings';
 
-const createAsyncAdapter = (options: Partial<AsyncAdapterOptions>) => {
-  setSettings(options);
+const createAsyncAdapter = (options?: Partial<AsyncAdapterOptions>) => {
+  if (options) setSettings(options);
   return {
     ...reducers,
     getSelectors: () => selectors,
