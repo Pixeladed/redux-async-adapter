@@ -16,7 +16,7 @@ describe('selectStatus', () => {
       reducer: () => adapter.getInitialState({}),
     });
 
-    const status = adapter.getSelectors().selectStatus(store.getState(), thunk);
+    const status = adapter.getSelectors().selectStatus(thunk)(store.getState());
     expect(status).toEqual(getDefaultStatus(thunk.typePrefix));
   });
 
@@ -34,7 +34,7 @@ describe('selectStatus', () => {
     store.dispatch(thunk());
     await flushPromises();
 
-    const status = adapter.getSelectors().selectStatus(store.getState(), thunk);
+    const status = adapter.getSelectors().selectStatus(thunk)(store.getState());
     const result: Partial<AsyncStatus> = {
       name: thunk.typePrefix,
       error: undefined,

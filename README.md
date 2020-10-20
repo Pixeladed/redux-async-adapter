@@ -154,10 +154,10 @@ adapter.resetAllStatuses(state);
 adapter.getSelectors().selectData(state);
 ```
 
-- `selectStatus`: accepts an `asyncThunk` (created by redux toolkit's `createAsyncThunk`) and the state and returns the status object of that particular thunk
+- `selectStatus`: accepts an `asyncThunk` (created by redux toolkit's `createAsyncThunk`) and returns a selector that accepts a state and returns the status object of that particular thunk
 
 ```typescript
-adapter.getSelectors().selectStatus(state, thunk);
+adapter.getSelectors().selectStatus(thunk)(state);
 ```
 
 - `selectAllStatuses`: returns an array of all status objects within the state
