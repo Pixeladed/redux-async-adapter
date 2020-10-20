@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.4.0...v1.5.0) (2020-10-20)
+
+
+### Features
+
+* **reducers:** add handleReset and resetAllStatuses ([d1683f0](https://github.com/Pixeladed/redux-async-adapter/commit/d1683f0c560737c996d7a190703535041384826f))
+
 # [1.4.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.3.1...v1.4.0) (2020-10-13)
 
 
