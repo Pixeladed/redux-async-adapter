@@ -17,9 +17,8 @@ export const selectData = <Data>(state: AsyncState<Data>) => {
  * @param asyncThunk the async thunk created by createAsyncThunk
  */
 export const selectStatus = <Data, Returned, ThunkArg, ThunkApiConfig>(
-  state: AsyncState<Data>,
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => {
+) => (state: AsyncState<Data>) => {
   const status =
     state.status[asyncThunk.typePrefix] ||
     getDefaultStatus(asyncThunk.typePrefix);
