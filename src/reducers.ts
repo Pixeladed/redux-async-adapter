@@ -62,3 +62,21 @@ export const handleRejected = <Data, Returned, ThunkArg, ThunkApiConfig>(
 
   state.status[typePrefix] = newStatus;
 };
+
+/**
+ * Reset the status of an async thunk
+ */
+export const handleReset = <Data, Returned, ThunkArg, ThunkApiConfig>(
+  asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
+) => (state: AsyncState<Data>) => {
+  const { typePrefix } = asyncThunk;
+  const newStatus = getDefaultStatus(typePrefix);
+  state.status[typePrefix] = newStatus;
+};
+
+/**
+ * Reset the status of all async thunks
+ */
+export const resetAllStatuses = <Data>(state: AsyncState<Data>) => {
+  state.status = {};
+};
