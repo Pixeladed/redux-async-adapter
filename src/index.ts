@@ -3,9 +3,9 @@ import * as reducers from './reducers';
 import { getInitialState } from './state';
 
 const createAsyncAdapter = () => ({
-  getInitialState,
   ...reducers,
   getSelectors: () => selectors,
+  getInitialState,
 });
 
 export * from './types';
