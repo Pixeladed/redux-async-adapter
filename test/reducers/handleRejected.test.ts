@@ -112,4 +112,18 @@ describe('handleRejected', () => {
     adapter.handleRejected(thunk)(state, action);
     expect(state.status[thunk.typePrefix]?.lastLoaded).toBeUndefined();
   });
+
+  it('creates a status state object is none exist', () => {
+    const adapter = createAsyncAdapter();
+    const thunk = createAsyncThunk('thunk', () => {});
+    const error = new Error();
+    const action = thunk.rejected(error, 'request id');
+
+    const state: Partial<AsyncState<{}>> = {
+      data: {},
+    };
+
+    adapter.handleRejected(thunk)(state, action);
+    expect(state.status[thunk.typePrefix]).toBeTruthy();
+  });
 });

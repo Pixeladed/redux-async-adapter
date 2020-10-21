@@ -100,4 +100,16 @@ describe('handlePending', () => {
     adapter.handlePending(thunk)(state);
     expect(state.status[thunk.typePrefix]?.lastLoaded).toBe(lastLoaded);
   });
+
+  it('creates a status state object is none exist', () => {
+    const adapter = createAsyncAdapter();
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: Partial<AsyncState<{}>> = {
+      data: {},
+    };
+
+    adapter.handlePending(thunk)(state);
+    expect(state.status[thunk.typePrefix]).toBeTruthy();
+  });
 });

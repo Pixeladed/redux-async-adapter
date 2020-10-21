@@ -101,4 +101,16 @@ describe('handleFulfilled', () => {
       Date.parse(state.status[thunk.typePrefix]?.lastLoaded!)
     ).toBeTruthy();
   });
+
+  it('creates a status state object is none exist', () => {
+    const adapter = createAsyncAdapter();
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: Partial<AsyncState<{}>> = {
+      data: {},
+    };
+
+    adapter.handleFulfilled(thunk)(state);
+    expect(state.status[thunk.typePrefix]).toBeTruthy();
+  });
 });
