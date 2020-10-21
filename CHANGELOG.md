@@ -1,3 +1,11 @@
+# [1.9.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.8.0...v1.9.0) (2020-10-21)
+
+
+### Features
+
+* **reducers:** create new status state object if none exists ([629fcd6](https://github.com/Pixeladed/redux-async-adapter/commit/629fcd66e62d2f96ffb253a3743864a57e54548a))
+* **selectors:** protect selectors against malformed state ([9ef130d](https://github.com/Pixeladed/redux-async-adapter/commit/9ef130d2ebc8384be66cb5251d004f315b28a722))
+
 # [1.8.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.7.0...v1.8.0) (2020-10-20)
 
 
