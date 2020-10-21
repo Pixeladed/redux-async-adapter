@@ -13,7 +13,7 @@ describe('handlePending', () => {
     };
 
     adapter.handlePending(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
   it('should reset error field', () => {
@@ -34,7 +34,7 @@ describe('handlePending', () => {
     };
 
     adapter.handlePending(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.error).toBe(undefined);
+    expect(state.status?.[thunk.typePrefix]?.error).toBe(undefined);
   });
 
   it('should set loading to true', () => {
@@ -55,7 +55,7 @@ describe('handlePending', () => {
     };
 
     adapter.handlePending(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.loading).toBe(true);
+    expect(state.status?.[thunk.typePrefix]?.loading).toBe(true);
   });
 
   it('should set loaded to false', () => {
@@ -76,7 +76,7 @@ describe('handlePending', () => {
     };
 
     adapter.handlePending(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.loaded).toBe(false);
+    expect(state.status?.[thunk.typePrefix]?.loaded).toBe(false);
   });
 
   it('should not change lastLoaded field', () => {
@@ -98,6 +98,18 @@ describe('handlePending', () => {
     };
 
     adapter.handlePending(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.lastLoaded).toBe(lastLoaded);
+    expect(state.status?.[thunk.typePrefix]?.lastLoaded).toBe(lastLoaded);
+  });
+
+  it('creates a status state object is none exist', () => {
+    const adapter = createAsyncAdapter();
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: Partial<AsyncState<{}>> = {
+      data: {},
+    };
+
+    adapter.handlePending(thunk)(state);
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 });

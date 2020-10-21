@@ -4,7 +4,7 @@ import {
   configureStore,
 } from '@reduxjs/toolkit';
 import { getDefaultStatus } from '../../src/utils';
-import { AsyncStatus } from '../../src/types';
+import { AsyncState, AsyncStatus } from '../../src/types';
 import flushPromises from 'flush-promises';
 import createAsyncAdapter from '../../src/index';
 
@@ -17,6 +17,15 @@ describe('selectStatus', () => {
     });
 
     const status = adapter.getSelectors().selectStatus(thunk)(store.getState());
+    expect(status).toEqual(getDefaultStatus(thunk.typePrefix));
+  });
+
+  it('select the default status if no status state object exists', () => {
+    const adapter = createAsyncAdapter();
+    const thunk = createAsyncThunk('example thunk', async () => {});
+    const state: Partial<AsyncState<{}>> = { data: {} };
+
+    const status = adapter.getSelectors().selectStatus(thunk)(state);
     expect(status).toEqual(getDefaultStatus(thunk.typePrefix));
   });
 

@@ -8,7 +8,11 @@ import { getSettings } from './settings';
  */
 export const handlePending = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: AsyncState<Data>) => {
+) => (state: Partial<AsyncState<Data>>) => {
+  if (!state.status) {
+    state.status = {};
+  }
+
   const { typePrefix } = asyncThunk;
   const currentStatus =
     state.status[typePrefix] || getDefaultStatus(typePrefix);
@@ -27,7 +31,11 @@ export const handlePending = <Data, Returned, ThunkArg, ThunkApiConfig>(
  */
 export const handleFulfilled = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: AsyncState<Data>) => {
+) => (state: Partial<AsyncState<Data>>) => {
+  if (!state.status) {
+    state.status = {};
+  }
+
   const { typePrefix } = asyncThunk;
   const currentStatus =
     state.status[typePrefix] || getDefaultStatus(typePrefix);
@@ -48,9 +56,13 @@ export const handleFulfilled = <Data, Returned, ThunkArg, ThunkApiConfig>(
 export const handleRejected = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (
-  state: AsyncState<Data>,
+  state: Partial<AsyncState<Data>>,
   action: ReturnType<typeof asyncThunk['rejected']>
 ) => {
+  if (!state.status) {
+    state.status = {};
+  }
+
   const { typePrefix } = asyncThunk;
   const currentStatus =
     state.status[typePrefix] || getDefaultStatus(typePrefix);
@@ -72,7 +84,11 @@ export const handleRejected = <Data, Returned, ThunkArg, ThunkApiConfig>(
  */
 export const handleReset = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: AsyncState<Data>) => {
+) => (state: Partial<AsyncState<Data>>) => {
+  if (!state.status) {
+    state.status = {};
+  }
+
   const { typePrefix } = asyncThunk;
   const newStatus = getDefaultStatus(typePrefix);
   state.status[typePrefix] = newStatus;
@@ -81,6 +97,6 @@ export const handleReset = <Data, Returned, ThunkArg, ThunkApiConfig>(
 /**
  * Reset the status of all async thunks
  */
-export const resetAllStatuses = <Data>(state: AsyncState<Data>) => {
+export const resetAllStatuses = <Data>(state: Partial<AsyncState<Data>>) => {
   state.status = {};
 };

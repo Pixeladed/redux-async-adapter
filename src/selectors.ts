@@ -7,7 +7,7 @@ import { getDefaultStatus } from './utils';
  * Select the data from an async state
  * @param state the async state to select the data from
  */
-export const selectData = <Data>(state: AsyncState<Data>) => {
+export const selectData = <Data>(state: Partial<AsyncState<Data>>) => {
   return state.data;
 };
 
@@ -18,9 +18,9 @@ export const selectData = <Data>(state: AsyncState<Data>) => {
  */
 export const selectStatus = <Data, Returned, ThunkArg, ThunkApiConfig>(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: AsyncState<Data>) => {
+) => (state: Partial<AsyncState<Data>>) => {
   const status =
-    state.status[asyncThunk.typePrefix] ||
+    state.status?.[asyncThunk.typePrefix] ||
     getDefaultStatus(asyncThunk.typePrefix);
   return status;
 };
@@ -29,8 +29,8 @@ export const selectStatus = <Data, Returned, ThunkArg, ThunkApiConfig>(
  * Select all async statuses in the state
  * @param state the async state to select the statuses from
  */
-export const selectAllStatuses = <Data>(state: AsyncState<Data>) => {
-  const statuses = Object.values(state.status)
+export const selectAllStatuses = <Data>(state: Partial<AsyncState<Data>>) => {
+  const statuses = Object.values(state.status || [])
     .filter(Boolean)
     .map(status => status!);
   return statuses;

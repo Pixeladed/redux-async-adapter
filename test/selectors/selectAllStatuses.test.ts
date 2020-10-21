@@ -3,7 +3,7 @@ import {
   createReducer,
   configureStore,
 } from '@reduxjs/toolkit';
-import { AsyncStatus } from '../../src/types';
+import { AsyncState, AsyncStatus } from '../../src/types';
 import flushPromises from 'flush-promises';
 import createAsyncAdapter from '../../src/index';
 
@@ -14,6 +14,13 @@ describe('selectAllStatuses', () => {
       reducer: () => adapter.getInitialState({}),
     });
     const statuses = adapter.getSelectors().selectAllStatuses(store.getState());
+    expect(statuses.length).toBe(0);
+  });
+
+  it('should return empty array if no status state exists', () => {
+    const adapter = createAsyncAdapter();
+    const state: Partial<AsyncState<{}>> = { data: {} };
+    const statuses = adapter.getSelectors().selectAllStatuses(state);
     expect(statuses.length).toBe(0);
   });
 
