@@ -22,7 +22,7 @@ describe('handleReset', () => {
     };
 
     adapter.handleReset(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toStrictEqual(
+    expect(state.status?.[thunk.typePrefix]).toStrictEqual(
       getDefaultStatus(thunk.typePrefix)
     );
   });
@@ -37,7 +37,7 @@ describe('handleReset', () => {
     };
 
     adapter.handleReset(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toStrictEqual(
+    expect(state.status?.[thunk.typePrefix]).toStrictEqual(
       getDefaultStatus(thunk.typePrefix)
     );
   });
@@ -51,6 +51,6 @@ describe('handleReset', () => {
     };
 
     adapter.handleReset(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 });

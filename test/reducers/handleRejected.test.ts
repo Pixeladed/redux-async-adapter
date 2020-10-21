@@ -16,7 +16,7 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
   it('should set error field', () => {
@@ -39,7 +39,7 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]?.error).toEqual(
+    expect(state.status?.[thunk.typePrefix]?.error).toEqual(
       getMatchingSerializedError(error)
     );
   });
@@ -64,7 +64,7 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]?.loading).toBe(false);
+    expect(state.status?.[thunk.typePrefix]?.loading).toBe(false);
   });
 
   it('should set loaded to false', () => {
@@ -87,7 +87,7 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]?.loaded).toBe(false);
+    expect(state.status?.[thunk.typePrefix]?.loaded).toBe(false);
   });
 
   it('should not update lastLoaded field', () => {
@@ -110,7 +110,7 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]?.lastLoaded).toBeUndefined();
+    expect(state.status?.[thunk.typePrefix]?.lastLoaded).toBeUndefined();
   });
 
   it('creates a status state object is none exist', () => {
@@ -124,6 +124,6 @@ describe('handleRejected', () => {
     };
 
     adapter.handleRejected(thunk)(state, action);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 });

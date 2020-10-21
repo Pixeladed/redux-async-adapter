@@ -13,7 +13,7 @@ describe('handleFulfilled', () => {
     };
 
     adapter.handleFulfilled(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
   it('should reset error field', () => {
@@ -34,7 +34,7 @@ describe('handleFulfilled', () => {
     };
 
     adapter.handleFulfilled(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.error).toBe(undefined);
+    expect(state.status?.[thunk.typePrefix]?.error).toBe(undefined);
   });
 
   it('should set loading to false', () => {
@@ -55,7 +55,7 @@ describe('handleFulfilled', () => {
     };
 
     adapter.handleFulfilled(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.loading).toBe(false);
+    expect(state.status?.[thunk.typePrefix]?.loading).toBe(false);
   });
 
   it('should set loaded to true', () => {
@@ -76,7 +76,7 @@ describe('handleFulfilled', () => {
     };
 
     adapter.handleFulfilled(thunk)(state);
-    expect(state.status[thunk.typePrefix]?.loaded).toBe(true);
+    expect(state.status?.[thunk.typePrefix]?.loaded).toBe(true);
   });
 
   it('should update lastLoaded field', () => {
@@ -98,7 +98,7 @@ describe('handleFulfilled', () => {
 
     adapter.handleFulfilled(thunk)(state);
     expect(
-      Date.parse(state.status[thunk.typePrefix]?.lastLoaded!)
+      Date.parse(state.status?.[thunk.typePrefix]?.lastLoaded!)
     ).toBeTruthy();
   });
 
@@ -111,6 +111,6 @@ describe('handleFulfilled', () => {
     };
 
     adapter.handleFulfilled(thunk)(state);
-    expect(state.status[thunk.typePrefix]).toBeTruthy();
+    expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 });
