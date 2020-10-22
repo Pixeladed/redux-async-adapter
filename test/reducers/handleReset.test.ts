@@ -7,6 +7,7 @@ describe('handleReset', () => {
   it('reset the async status to the default state', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
@@ -21,7 +22,7 @@ describe('handleReset', () => {
       },
     };
 
-    adapter.handleReset(thunk)(state);
+    adapter.handleReset(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toStrictEqual(
       getDefaultStatus(thunk.typePrefix)
     );
@@ -30,13 +31,14 @@ describe('handleReset', () => {
   it('create a new status if none exist already', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
       status: {},
     };
 
-    adapter.handleReset(thunk)(state);
+    adapter.handleReset(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toStrictEqual(
       getDefaultStatus(thunk.typePrefix)
     );
@@ -45,12 +47,13 @@ describe('handleReset', () => {
   it('creates a status state object is none exist', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: Partial<AsyncState<{}>> = {
       data: {},
     };
 
-    adapter.handleReset(thunk)(state);
+    adapter.handleReset(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
@@ -58,13 +61,14 @@ describe('handleReset', () => {
     const trap = jest.fn(status => status);
     const adapter = createAsyncAdapter({ onReset: trap });
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
       status: {},
     };
 
-    adapter.handleReset(thunk)(state);
+    adapter.handleReset(thunk)(state, action);
     expect(trap).toHaveBeenCalled();
   });
 });

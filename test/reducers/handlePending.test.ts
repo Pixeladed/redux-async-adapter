@@ -6,19 +6,21 @@ describe('handlePending', () => {
   it('adds a new status if none exists', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
       status: {},
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
   it('should reset error field', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
@@ -33,13 +35,14 @@ describe('handlePending', () => {
       },
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]?.error).toBe(undefined);
   });
 
   it('should set loading to true', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
@@ -54,13 +57,14 @@ describe('handlePending', () => {
       },
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]?.loading).toBe(true);
   });
 
   it('should set loaded to false', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
@@ -75,7 +79,7 @@ describe('handlePending', () => {
       },
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]?.loaded).toBe(false);
   });
 
@@ -83,6 +87,7 @@ describe('handlePending', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
     const lastLoaded = new Date().toISOString();
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
@@ -97,33 +102,35 @@ describe('handlePending', () => {
       },
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]?.lastLoaded).toBe(lastLoaded);
   });
 
   it('creates a status state object is none exist', () => {
     const adapter = createAsyncAdapter();
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: Partial<AsyncState<{}>> = {
       data: {},
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
 
   it('calls the onPending handler hook', () => {
-    const trap = jest.fn(status => status);
+    const trap = jest.fn((_, status) => status);
     const adapter = createAsyncAdapter({ onPending: trap });
     const thunk = createAsyncThunk('thunk', () => {});
+    const action = { type: 'mock' } as any;
 
     const state: AsyncState<{}> = {
       data: {},
       status: {},
     };
 
-    adapter.handlePending(thunk)(state);
+    adapter.handlePending(thunk)(state, action);
     expect(trap).toHaveBeenCalled();
   });
 });

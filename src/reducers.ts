@@ -1,4 +1,4 @@
-import { AsyncThunk } from '@reduxjs/toolkit';
+import { AsyncThunk, AnyAction } from '@reduxjs/toolkit';
 import { AsyncState, AsyncStatus, AsyncAdapterOptions } from './types';
 import { getDefaultStatus, processStatusWithHook } from './utils';
 
@@ -12,7 +12,10 @@ export const createPendingHandler = (options: AsyncAdapterOptions) => <
   ThunkApiConfig
 >(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: Partial<AsyncState<Data>>) => {
+) => (
+  state: Partial<AsyncState<Data>>,
+  action: ReturnType<typeof asyncThunk['pending']>
+) => {
   if (!state.status) {
     state.status = {};
   }
@@ -27,7 +30,11 @@ export const createPendingHandler = (options: AsyncAdapterOptions) => <
     loaded: false,
     loading: true,
   };
-  const newStatus = processStatusWithHook(baseStatus, options.onPending);
+  const newStatus = processStatusWithHook(
+    action,
+    baseStatus,
+    options.onPending
+  );
 
   state.status[typePrefix] = newStatus;
 };
@@ -42,7 +49,10 @@ export const createFulfilledHandler = (options: AsyncAdapterOptions) => <
   ThunkApiConfig
 >(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: Partial<AsyncState<Data>>) => {
+) => (
+  state: Partial<AsyncState<Data>>,
+  action: ReturnType<typeof asyncThunk['fulfilled']>
+) => {
   if (!state.status) {
     state.status = {};
   }
@@ -58,7 +68,11 @@ export const createFulfilledHandler = (options: AsyncAdapterOptions) => <
     loading: false,
     lastLoaded: new Date().toISOString(),
   };
-  const newStatus = processStatusWithHook(baseStatus, options.onFulfilled);
+  const newStatus = processStatusWithHook(
+    action,
+    baseStatus,
+    options.onFulfilled
+  );
 
   state.status[typePrefix] = newStatus;
 };
@@ -92,7 +106,11 @@ export const createRejectedHandler = (options: AsyncAdapterOptions) => <
     loaded: false,
     loading: false,
   };
-  const newStatus = processStatusWithHook(baseStatus, options.onRejected);
+  const newStatus = processStatusWithHook(
+    action,
+    baseStatus,
+    options.onRejected
+  );
 
   state.status[typePrefix] = newStatus;
 };
@@ -107,14 +125,14 @@ export const createResetHandler = (options: AsyncAdapterOptions) => <
   ThunkApiConfig
 >(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: Partial<AsyncState<Data>>) => {
+) => (state: Partial<AsyncState<Data>>, action: AnyAction) => {
   if (!state.status) {
     state.status = {};
   }
 
   const { typePrefix } = asyncThunk;
   const baseStatus = getDefaultStatus(typePrefix);
-  const newStatus = processStatusWithHook(baseStatus, options.onReset);
+  const newStatus = processStatusWithHook(action, baseStatus, options.onReset);
   state.status[typePrefix] = newStatus;
 };
 

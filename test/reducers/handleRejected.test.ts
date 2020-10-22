@@ -128,7 +128,7 @@ describe('handleRejected', () => {
   });
 
   it('calls the onRejected handler hook', () => {
-    const trap = jest.fn(status => status);
+    const trap = jest.fn((_, status) => status);
     const adapter = createAsyncAdapter({ onRejected: trap });
     const thunk = createAsyncThunk('thunk', () => {});
     const error = new Error();
