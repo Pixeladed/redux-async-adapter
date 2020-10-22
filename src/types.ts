@@ -13,7 +13,7 @@ export interface AsyncState<T> {
   data: T;
 }
 
-export interface AsyncStatus {
+export interface BaseAsyncStatus {
   name: string;
   loading: boolean;
   loaded: boolean;
@@ -21,25 +21,27 @@ export interface AsyncStatus {
   lastLoaded: string | undefined;
 }
 
-export type PendingHandlerHook = <I extends AsyncStatus, O extends I>(
+export type AsyncStatus = BaseAsyncStatus & { [key: string]: any };
+
+export type PendingHandlerHook = (
   action: ReturnType<AsyncThunk<any, any, any>['pending']>,
-  status: I
-) => O;
+  status: AsyncStatus
+) => AsyncStatus;
 
-export type FulfilledHandlerHook = <I extends AsyncStatus, O extends I>(
+export type FulfilledHandlerHook = (
   action: ReturnType<AsyncThunk<any, any, any>['fulfilled']>,
-  status: I
-) => O;
+  status: AsyncStatus
+) => AsyncStatus;
 
-export type RejectedHandlerHook = <I extends AsyncStatus, O extends I>(
+export type RejectedHandlerHook = (
   action: ReturnType<AsyncThunk<any, any, any>['rejected']>,
-  status: I
-) => O;
+  status: AsyncStatus
+) => AsyncStatus;
 
-export type ResetHandlerHook = <I extends AsyncStatus, O extends I>(
+export type ResetHandlerHook = (
   action: AnyAction,
-  status: I
-) => O;
+  status: AsyncStatus
+) => AsyncStatus;
 
 export type HandlerHook =
   | PendingHandlerHook
