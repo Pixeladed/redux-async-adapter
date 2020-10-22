@@ -19,9 +19,9 @@ export const getMatchingSerializedError = (error: Error) => {
 };
 
 export const processStatusWithHook = (
-  action: Parameters<HandlerHook>[0],
   status: AsyncStatus,
-  hook: HandlerHook | undefined | null
+  hook: HandlerHook | undefined | null,
+  action?: Parameters<HandlerHook>[0]
 ) => {
   if (hook) {
     return (hook as Function)(action, status);

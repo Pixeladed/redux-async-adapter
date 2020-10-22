@@ -14,7 +14,7 @@ export const createPendingHandler = (options: AsyncAdapterOptions) => <
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (
   state: Partial<AsyncState<Data>>,
-  action: ReturnType<typeof asyncThunk['pending']>
+  action?: ReturnType<typeof asyncThunk['pending']>
 ) => {
   if (!state.status) {
     state.status = {};
@@ -31,9 +31,9 @@ export const createPendingHandler = (options: AsyncAdapterOptions) => <
     loading: true,
   };
   const newStatus = processStatusWithHook(
-    action,
     baseStatus,
-    options.onPending
+    options.onPending,
+    action
   );
 
   state.status[typePrefix] = newStatus;
@@ -51,7 +51,7 @@ export const createFulfilledHandler = (options: AsyncAdapterOptions) => <
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
 ) => (
   state: Partial<AsyncState<Data>>,
-  action: ReturnType<typeof asyncThunk['fulfilled']>
+  action?: ReturnType<typeof asyncThunk['fulfilled']>
 ) => {
   if (!state.status) {
     state.status = {};
@@ -69,9 +69,9 @@ export const createFulfilledHandler = (options: AsyncAdapterOptions) => <
     lastLoaded: new Date().toISOString(),
   };
   const newStatus = processStatusWithHook(
-    action,
     baseStatus,
-    options.onFulfilled
+    options.onFulfilled,
+    action
   );
 
   state.status[typePrefix] = newStatus;
@@ -107,9 +107,9 @@ export const createRejectedHandler = (options: AsyncAdapterOptions) => <
     loading: false,
   };
   const newStatus = processStatusWithHook(
-    action,
     baseStatus,
-    options.onRejected
+    options.onRejected,
+    action
   );
 
   state.status[typePrefix] = newStatus;
@@ -125,14 +125,14 @@ export const createResetHandler = (options: AsyncAdapterOptions) => <
   ThunkApiConfig
 >(
   asyncThunk: AsyncThunk<Returned, ThunkArg, ThunkApiConfig>
-) => (state: Partial<AsyncState<Data>>, action: AnyAction) => {
+) => (state: Partial<AsyncState<Data>>, action?: AnyAction) => {
   if (!state.status) {
     state.status = {};
   }
 
   const { typePrefix } = asyncThunk;
   const baseStatus = getDefaultStatus(typePrefix);
-  const newStatus = processStatusWithHook(action, baseStatus, options.onReset);
+  const newStatus = processStatusWithHook(baseStatus, options.onReset, action);
   state.status[typePrefix] = newStatus;
 };
 
