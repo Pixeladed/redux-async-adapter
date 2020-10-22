@@ -7,7 +7,7 @@ import { getDefaultStatus } from './utils';
  * Select the data from an async state
  * @param state the async state to select the data from
  */
-export const selectData = <Data>(state: Partial<AsyncState<Data>>) => {
+export const selectData = <Data>(state: AsyncState<Data>) => {
   return state.data;
 };
 
