@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.12.0...v1.13.0) (2020-10-22)
+
+
+### Features
+
+* **reducers:** make action optional on some handlers ([fb69654](https://github.com/Pixeladed/redux-async-adapter/commit/fb69654eff1bd95cb8b3bc19cc83e7c90255810a))
+
 # [1.12.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.11.0...v1.12.0) (2020-10-22)
 
 
