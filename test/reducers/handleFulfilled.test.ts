@@ -113,4 +113,18 @@ describe('handleFulfilled', () => {
     adapter.handleFulfilled(thunk)(state);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
+
+  it('calls the onFulfilled handler hook', () => {
+    const trap = jest.fn(status => status);
+    const adapter = createAsyncAdapter({ onFulfilled: trap });
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: AsyncState<{}> = {
+      data: {},
+      status: {},
+    };
+
+    adapter.handleFulfilled(thunk)(state);
+    expect(trap).toHaveBeenCalled();
+  });
 });

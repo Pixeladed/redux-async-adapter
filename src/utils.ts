@@ -1,4 +1,4 @@
-import { AsyncStatus } from './types';
+import { AsyncStatus, HandlerHook } from './types';
 import { SerializedError } from '@reduxjs/toolkit';
 
 export const getDefaultStatus = (typePrefix: string): AsyncStatus => ({
@@ -16,4 +16,15 @@ export const getMatchingSerializedError = (error: Error) => {
     stack: error.stack,
   };
   return expect.objectContaining(data);
+};
+
+export const processStatusWithHook = (
+  status: AsyncStatus,
+  hook?: HandlerHook
+) => {
+  if (hook) {
+    return hook(status);
+  } else {
+    return status;
+  }
 };

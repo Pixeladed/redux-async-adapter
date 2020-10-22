@@ -53,4 +53,18 @@ describe('handleReset', () => {
     adapter.handleReset(thunk)(state);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
+
+  it('calls the onReset handler hook', () => {
+    const trap = jest.fn(status => status);
+    const adapter = createAsyncAdapter({ onReset: trap });
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: AsyncState<{}> = {
+      data: {},
+      status: {},
+    };
+
+    adapter.handleReset(thunk)(state);
+    expect(trap).toHaveBeenCalled();
+  });
 });

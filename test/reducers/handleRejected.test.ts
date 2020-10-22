@@ -126,4 +126,20 @@ describe('handleRejected', () => {
     adapter.handleRejected(thunk)(state, action);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
+
+  it('calls the onRejected handler hook', () => {
+    const trap = jest.fn(status => status);
+    const adapter = createAsyncAdapter({ onRejected: trap });
+    const thunk = createAsyncThunk('thunk', () => {});
+    const error = new Error();
+    const action = thunk.rejected(error, 'request id');
+
+    const state: AsyncState<{}> = {
+      data: {},
+      status: {},
+    };
+
+    adapter.handleRejected(thunk)(state, action);
+    expect(trap).toHaveBeenCalled();
+  });
 });

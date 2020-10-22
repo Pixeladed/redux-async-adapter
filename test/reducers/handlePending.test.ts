@@ -112,4 +112,18 @@ describe('handlePending', () => {
     adapter.handlePending(thunk)(state);
     expect(state.status?.[thunk.typePrefix]).toBeTruthy();
   });
+
+  it('calls the onPending handler hook', () => {
+    const trap = jest.fn(status => status);
+    const adapter = createAsyncAdapter({ onPending: trap });
+    const thunk = createAsyncThunk('thunk', () => {});
+
+    const state: AsyncState<{}> = {
+      data: {},
+      status: {},
+    };
+
+    adapter.handlePending(thunk)(state);
+    expect(trap).toHaveBeenCalled();
+  });
 });

@@ -1,7 +1,11 @@
 import { SerializedError } from '@reduxjs/toolkit';
 
 export interface AsyncAdapterOptions {
-  usePayloadAsError: boolean;
+  usePayloadAsError?: boolean;
+  onPending?: HandlerHook;
+  onFulfilled?: HandlerHook;
+  onRejected?: HandlerHook;
+  onReset?: HandlerHook;
 }
 
 export interface AsyncState<T> {
@@ -16,3 +20,5 @@ export interface AsyncStatus {
   error: SerializedError | any | undefined;
   lastLoaded: string | undefined;
 }
+
+export type HandlerHook = <I extends AsyncStatus, O extends I>(status: I) => O;
