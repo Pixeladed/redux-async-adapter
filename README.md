@@ -81,7 +81,19 @@ const {loading, error, loaded, lastLoaded} = fetchBooksStatus
 
 ## Parameters
 
-`createAsyncAdapter` requires no parameters
+`createAsyncAdapter` accepts an optional `options` parameter which an an object containing the configuration for the adapter.
+
+## Options
+
+- `usePayloadAsError` boolean?: use the payload field of a rejected action instead of the error field. This is useful if you are using `rejectWithValue` in your async thunk
+- `onFulfilled` function?: a function that receives an `AsyncStatus` and returns an `AsyncStatus` that is run after `handleFulfilled`
+- `onPending` function?: a function that receives an `AsyncStatus` and returns an `AsyncStatus` that is run after `handlePending`
+- `onRejected` function?: a function that receives an `AsyncStatus` and returns an `AsyncStatus` that is run after `handleRejected`
+- `onReset` function?: a function that receives an `AsyncStatus` and returns an `AsyncStatus` that is run after `handleReset`
+
+```typescript
+adapter.handlePending(thunk)(state);
+```
 
 ## Return Value
 
