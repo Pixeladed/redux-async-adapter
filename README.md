@@ -75,7 +75,7 @@ const fetchBooksStatus =
     .getSelectors()
     .selectAsyncStatus(store.getState(), fetchBooks)
 
-// access the various statuses
+// access various statuses
 const {loading, error, loaded, lastLoaded} = fetchBooksStatus
 ```
 
