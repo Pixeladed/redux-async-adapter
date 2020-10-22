@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.10.0...v1.11.0) (2020-10-22)
+
+
+### Features
+
+* **hook:** also pass action into handler hooks ([793410a](https://github.com/Pixeladed/redux-async-adapter/commit/793410ab134e79292a497d23a6b50cb70cf9ad92))
+* **test:** force push ([9f2a75f](https://github.com/Pixeladed/redux-async-adapter/commit/9f2a75fc145e6d17b84ed356849651f87a2d6c16))
+
 # [1.10.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.9.0...v1.10.0) (2020-10-22)
 
 
