@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.11.0...v1.12.0) (2020-10-22)
+
+
+### Features
+
+* **type:** allow any index signature on AsyncStatus ([11d38b1](https://github.com/Pixeladed/redux-async-adapter/commit/11d38b16b104e87d0654190da1105a0d1f06d14d))
+
 # [1.11.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.10.0...v1.11.0) (2020-10-22)
 
 
