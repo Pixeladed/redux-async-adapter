@@ -1,3 +1,11 @@
+# [1.10.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.9.0...v1.10.0) (2020-10-22)
+
+
+### Features
+
+* **hook:** add handler hooks ([519560e](https://github.com/Pixeladed/redux-async-adapter/commit/519560e02c1e27cabf592c712da2585b9db64410))
+* **selectors:** always selectData ([bb4cdd0](https://github.com/Pixeladed/redux-async-adapter/commit/bb4cdd0a3c6987e7a16e4db1bcf1a6ff07d25fb8))
+
 # [1.9.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.8.0...v1.9.0) (2020-10-21)
 
 
