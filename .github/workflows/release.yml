@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up NodeJS
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.4
         with:
           node-version: 14.x
       - name: Use cached node_modules
@@ -43,7 +43,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up NodeJS
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.4
         with:
           node-version: 14.x
       - name: Use cached node_modules
