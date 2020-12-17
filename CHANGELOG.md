@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.13.0...v1.14.0) (2020-12-17)
+
+
+### Features
+
+* remove manual set env ([af1adde](https://github.com/Pixeladed/redux-async-adapter/commit/af1adde58e893ab8f02bfda73c3688d934298823))
+
 # [1.13.0](https://github.com/Pixeladed/redux-async-adapter/compare/v1.12.0...v1.13.0) (2020-10-22)
 
 
